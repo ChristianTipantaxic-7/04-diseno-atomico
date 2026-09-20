@@ -1,0 +1,17 @@
+{
+  "name": "uets-pm-04-diseno-atomico",
+  "version": "1.0.0",
+  "scripts": {
+    "test:1": "vitest run tests/01_custombutton.test.ts",
+    "test:2": "vitest run tests/02_infocard.test.ts",
+    "test:3": "vitest run tests/03_styledinput.test.ts",
+    "test:4": "vitest run tests/04_alertbox.test.ts",
+    "test:all": "tsx tests/runner.ts",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  }
+}
