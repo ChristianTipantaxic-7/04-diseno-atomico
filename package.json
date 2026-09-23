@@ -10,8 +10,14 @@
     "check": "tsc --noEmit"
   },
   "devDependencies": {
-    "vitest": "^1.6.0",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
     "tsx": "^4.7.0",
-    "typescript": "^5.4.0"
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-native": "^0.87.1"
   }
 }
