@@ -1,24 +1,26 @@
 import React from 'react';
-
 import { Pressable, Text, StyleSheet } from 'react-native';
 
 interface CustomButtonProps {
-  title: string;
+  label: string;
   onPress: () => void;
   variant: 'primary' | 'secondary' | 'danger';
+  disabled?: boolean;
 }
 
 export default function CustomButton({
-  title,
+  label,
   onPress,
   variant,
+  disabled = false,
 }: CustomButtonProps) {
   return (
     <Pressable
-      style={[styles.button, styles[variant]]}
+      style={[styles.button, styles[variant], disabled && styles.disabled]}
       onPress={onPress}
+      disabled={disabled}
     >
-      <Text style={styles.text}>{title}</Text>
+      <Text style={styles.text}>{label}</Text>
     </Pressable>
   );
 }
@@ -41,6 +43,10 @@ const styles = StyleSheet.create({
 
   danger: {
     backgroundColor: '#F44336',
+  },
+
+  disabled: {
+    opacity: 0.5,
   },
 
   text: {
