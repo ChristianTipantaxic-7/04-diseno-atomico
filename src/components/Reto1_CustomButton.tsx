@@ -1,23 +1,51 @@
-// TODO [RETO 1]: Diseña un botón reutilizable que reciba un texto
-// visible y una acción al presionarlo. Debe soportar al menos 3
-// variantes visuales (primary, secondary, danger).
-//
-// Pregunta 1: ¿Qué props necesita tu componente para ser reutilizable
-//             en 3 lugares distintos sin duplicar código?
-// Pregunta 2: ¿Cómo harías que la variante cambie el estilo sin usar
-//             condicionales anidados gigantes?
-// Prompt IA: "No me des la respuesta. Hazme 3 preguntas para descubrir
-//             cómo tipar las props de un botón reutilizable."
-
 import React from 'react';
+
 import { Pressable, Text, StyleSheet } from 'react-native';
 
-// TODO: Define la interface CustomButtonProps
-
-// TODO: Implementa el componente
-
-// TODO: Define los estilos
-
-export default function CustomButton() {
-  return null;
+interface CustomButtonProps {
+  title: string;
+  onPress: () => void;
+  variant: 'primary' | 'secondary' | 'danger';
 }
+
+export default function CustomButton({
+  title,
+  onPress,
+  variant,
+}: CustomButtonProps) {
+  return (
+    <Pressable
+      style={[styles.button, styles[variant]]}
+      onPress={onPress}
+    >
+      <Text style={styles.text}>{title}</Text>
+    </Pressable>
+  );
+}
+
+const styles = StyleSheet.create({
+  button: {
+    padding: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginVertical: 5,
+  },
+
+  primary: {
+    backgroundColor: '#2196F3',
+  },
+
+  secondary: {
+    backgroundColor: '#757575',
+  },
+
+  danger: {
+    backgroundColor: '#F44336',
+  },
+
+  text: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+});
